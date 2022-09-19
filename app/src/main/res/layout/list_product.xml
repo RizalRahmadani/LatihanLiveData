@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.latihanlivedata.DataClassProduct" />
+        <variable
+            name="eventKlikDetail"
+            type="com.example.latihanlivedata.ProductAdapter.ItemClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvList"
+        android:onClick="@{()->eventKlikDetail.onItemClickListener(product)}"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:id="@+id/imgProduct"
+                app:ImageResource = "@{product.img}"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:id="@+id/tvNamaProduk"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                android:text="@{product.namaProduct}"
+                android:layout_toRightOf="@id/imgProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHarga"
+                android:layout_alignParentRight="true"
+                android:text="@{product.harga}"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
